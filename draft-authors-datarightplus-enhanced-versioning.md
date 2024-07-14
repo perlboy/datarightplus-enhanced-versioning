@@ -57,6 +57,7 @@ This specification seeks to solve for these two challenges by introducing an exp
 # Provider
 
 The following provisions apply to Provider Resource Server endpoints supporting this specification:
+
 1. Response payloads **SHALL** be determined based on the `x-v` header specified in the request;
 2. Response payloads **SHALL** include the `version` attribute in the response payload;
 3. Response headers **MAY** include an `x-v` value matching the `version` attribute within the payload
@@ -66,6 +67,7 @@ The following provisions apply to Provider Resource Server endpoints supporting 
 # Initiator
 
 The following provisions apply to participants operating individual Initiators accessing endpoints supporting this specification:
+
 1. Requests shall include an `x-v` header representing the requested response payload
 2. Request payloads **SHALL** be constructed to contain the `version` attribute contained within the relevant OpenAPI specification
 3. Response payloads **SHALL** be processed in accordance with the `version` attribute and the `oneOf` specification within the relevant OpenAPI specification
