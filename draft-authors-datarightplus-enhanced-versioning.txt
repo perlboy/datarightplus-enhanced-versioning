@@ -1,0 +1,163 @@
+
+
+
+
+datarightplus                                                     S. Low
+Internet-Draft                                                 B. Kolera
+Intended status: Experimental                                    Biza.io
+Expires: 15 January 2025                                    14 July 2024
+
+
+                DataRight+: Enhanced Endpoint Versioning
+         draft-authors-datarightplus-enhanced-versioning-latest
+
+Abstract
+
+   This specification outlines the technical components associated with
+   the DataRight+ Enhanced Endpoint Versioning.  This is intended to be
+   an alternate endpoint versioning scheme to that outlined with [CDS]
+   which facilitates a more developer friendly response processing
+   mechanism (by way of oneOf) and a deterministic request payload
+   versioning mechanism.
+
+Notational Conventions
+
+   The keywords "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD
+   NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be
+   interpreted as described in [RFC2119].
+
+Status of This Memo
+
+   This Internet-Draft is submitted in full conformance with the
+   provisions of BCP 78 and BCP 79.
+
+   Internet-Drafts are working documents of the Internet Engineering
+   Task Force (IETF).  Note that other groups may also distribute
+   working documents as Internet-Drafts.  The list of current Internet-
+   Drafts is at https://datatracker.ietf.org/drafts/current/.
+
+   Internet-Drafts are draft documents valid for a maximum of six months
+   and may be updated, replaced, or obsoleted by other documents at any
+   time.  It is inappropriate to use Internet-Drafts as reference
+   material or to cite them other than as "work in progress."
+
+   This Internet-Draft will expire on 15 January 2025.
+
+Copyright Notice
+
+   Copyright (c) 2024 IETF Trust and the persons identified as the
+   document authors.  All rights reserved.
+
+   This document is subject to BCP 78 and the IETF Trust's Legal
+   Provisions Relating to IETF Documents (https://trustee.ietf.org/
+   license-info) in effect on the date of publication of this document.
+   Please review these documents carefully, as they describe your rights
+   and restrictions with respect to this document.
+
+Table of Contents
+
+   1.  Scope
+   2.  Terms & Definitions
+   3.  Introduction
+   4.  Provider
+   5.  Initiator
+   6.  Implementation Considerations
+   7.  Normative References
+   Authors' Addresses
+
+1.  Scope
+
+   The scope of this specification is specifically with regard to a
+   standardised request and response versioning pattern for resource
+   server endpoint paths as an alternate to that prescribed by [CDS].
+
+2.  Terms & Definitions
+
+   This specification uses the terms "Provider" and "Initiator" as
+   defined by [DATARIGHTPLUS-ROSETTA].
+
+3.  Introduction
+
+   The [CDS] introduced an endpoint versioning scheme based on a
+   negotiation pattern contained within the x-v and x-min-v headers.
+   This effectively allows for dynamic response negotiation by the
+   resource server between a range of available versions.  The
+   challenges with this approach though is that the payloads themselves
+   are not explicitly versioned, something oneOf in OpenAPI 3 lends
+   itself to, and the payloads contained within POST requests are
+   essentially unversioned.
+
+   This specification seeks to solve for these two challenges by
+   introducing an explicit version in both request and response
+   payloads.  Further it seeks to retire the x-min-v header on the basis
+   that such a negotiation pattern is unable to be applied to
+   potentially multiple versions of a request payload.  Much of this
+   specification assumes the adoption of the related
+   [DATARIGHTPLUS-DISCOVERY] specification.
+
+4.  Provider
+
+   The following provisions apply to Provider Resource Server endpoints
+   supporting this specification: 1.  Response payloads SHALL be
+   determined based on the x-v header specified in the request; 2.
+   Response payloads SHALL include the version attribute in the response
+   payload; 3.  Response headers MAY include an x-v value matching the
+   version attribute within the payload 4.  Request payloads received
+   using the HTTP POST method SHALL be processed by matching the version
+   attribute to the appropriate OpenAPI specification 5.  If a request
+   is received containing a x-v value which is unsupported the server
+   shall respond with a urn:au-cds:error:cds-all:Header/
+   UnsupportedVersion error as outlined in [CDS]
+
+5.  Initiator
+
+   The following provisions apply to participants operating individual
+   Initiators accessing endpoints supporting this specification: 1.
+   Requests shall include an x-v header representing the requested
+   response payload 2.  Request payloads SHALL be constructed to contain
+   the version attribute contained within the relevant OpenAPI
+   specification 3.  Response payloads SHALL be processed in accordance
+   with the version attribute and the oneOf specification within the
+   relevant OpenAPI specification 4.  Responses containing an x-v header
+   SHALL be validated to ensure the x-v and version values are the same
+
+6.  Implementation Considerations
+
+   For endpoints which are currently compliant to the [CDS] versioning
+   schema the endpoint can be transitioned by incrementing the endpoint
+   version while introducing the version attribute into the response
+   and, if necessary, the request payloads.  In order to retire the use
+   of x-min-v it is necessary to introduce a discovery document, as
+   outlined in [DATARIGHTPLUS-DISCOVERY].
+
+7.  Normative References
+
+   [CDS]      Data Standards Body (Treasury), "Consumer Data Standards
+              (CDS)", <https://consumerdatastandardsaustralia.github.io/
+              standards>.
+
+   [DATARIGHTPLUS-DISCOVERY]
+              Low, S., "DataRight+: Discovery",
+              <https://datarightplus.github.io/datarightplus-discovery/
+              draft-authors-datarightplus-discovery.html>.
+
+   [DATARIGHTPLUS-ROSETTA]
+              Low, S., "DataRight+ Rosetta Stone",
+              <https://datarightplus.github.io/datarightplus-rosetta/
+              draft-authors-datarightplus-rosetta.html>.
+
+   [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
+              Requirement Levels", BCP 14, RFC 2119,
+              DOI 10.17487/RFC2119, March 1997,
+              <https://www.rfc-editor.org/info/rfc2119>.
+
+Authors' Addresses
+
+   Stuart Low
+   Biza.io
+   Email: stuart@biza.io
+
+
+   Ben Kolera
+   Biza.io
+   Email: bkolera@biza.io
