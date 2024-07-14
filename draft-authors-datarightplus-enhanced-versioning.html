@@ -1174,12 +1174,19 @@ svg :is([fill="white"], [fill^="#fff"]) {
       <h2 id="name-provider">
 <a href="#section-4" class="section-number selfRef">4. </a><a href="#name-provider" class="section-name selfRef">Provider</a>
       </h2>
-<p id="section-4-1">The following provisions apply to Provider Resource Server endpoints supporting this specification:
-1. Response payloads <span class="bcp14">SHALL</span> be determined based on the <code>x-v</code> header specified in the request;
-2. Response payloads <span class="bcp14">SHALL</span> include the <code>version</code> attribute in the response payload;
-3. Response headers <span class="bcp14">MAY</span> include an <code>x-v</code> value matching the <code>version</code> attribute within the payload
-4. Request payloads received using the HTTP POST method <span class="bcp14">SHALL</span> be processed by matching the <code>version</code> attribute to the appropriate OpenAPI specification
-5. If a request is received containing a <code>x-v</code> value which is unsupported the server shall respond with a <code>urn:au-cds:error:cds-all:Header/UnsupportedVersion</code> error as outlined in <span>[<a href="#CDS" class="cite xref">CDS</a>]</span><a href="#section-4-1" class="pilcrow">¶</a></p>
+<p id="section-4-1">The following provisions apply to Provider Resource Server endpoints supporting this specification:<a href="#section-4-1" class="pilcrow">¶</a></p>
+<ol start="1" type="1" class="compact type-1" id="section-4-2">
+<li id="section-4-2.1">Response payloads <span class="bcp14">SHALL</span> be determined based on the <code>x-v</code> header specified in the request;<a href="#section-4-2.1" class="pilcrow">¶</a>
+</li>
+        <li id="section-4-2.2">Response payloads <span class="bcp14">SHALL</span> include the <code>version</code> attribute in the response payload;<a href="#section-4-2.2" class="pilcrow">¶</a>
+</li>
+        <li id="section-4-2.3">Response headers <span class="bcp14">MAY</span> include an <code>x-v</code> value matching the <code>version</code> attribute within the payload<a href="#section-4-2.3" class="pilcrow">¶</a>
+</li>
+        <li id="section-4-2.4">Request payloads received using the HTTP POST method <span class="bcp14">SHALL</span> be processed by matching the <code>version</code> attribute to the appropriate OpenAPI specification<a href="#section-4-2.4" class="pilcrow">¶</a>
+</li>
+        <li id="section-4-2.5">If a request is received containing a <code>x-v</code> value which is unsupported the server shall respond with a <code>urn:au-cds:error:cds-all:Header/UnsupportedVersion</code> error as outlined in <span>[<a href="#CDS" class="cite xref">CDS</a>]</span><a href="#section-4-2.5" class="pilcrow">¶</a>
+</li>
+      </ol>
 </section>
 </div>
 <div id="initiator">
@@ -1187,11 +1194,17 @@ svg :is([fill="white"], [fill^="#fff"]) {
       <h2 id="name-initiator">
 <a href="#section-5" class="section-number selfRef">5. </a><a href="#name-initiator" class="section-name selfRef">Initiator</a>
       </h2>
-<p id="section-5-1">The following provisions apply to participants operating individual Initiators accessing endpoints supporting this specification:
-1. Requests shall include an <code>x-v</code> header representing the requested response payload
-2. Request payloads <span class="bcp14">SHALL</span> be constructed to contain the <code>version</code> attribute contained within the relevant OpenAPI specification
-3. Response payloads <span class="bcp14">SHALL</span> be processed in accordance with the <code>version</code> attribute and the <code>oneOf</code> specification within the relevant OpenAPI specification
-4. Responses containing an <code>x-v</code> header <span class="bcp14">SHALL</span> be validated to ensure the <code>x-v</code> and <code>version</code> values are the same<a href="#section-5-1" class="pilcrow">¶</a></p>
+<p id="section-5-1">The following provisions apply to participants operating individual Initiators accessing endpoints supporting this specification:<a href="#section-5-1" class="pilcrow">¶</a></p>
+<ol start="1" type="1" class="compact type-1" id="section-5-2">
+<li id="section-5-2.1">Requests shall include an <code>x-v</code> header representing the requested response payload<a href="#section-5-2.1" class="pilcrow">¶</a>
+</li>
+        <li id="section-5-2.2">Request payloads <span class="bcp14">SHALL</span> be constructed to contain the <code>version</code> attribute contained within the relevant OpenAPI specification<a href="#section-5-2.2" class="pilcrow">¶</a>
+</li>
+        <li id="section-5-2.3">Response payloads <span class="bcp14">SHALL</span> be processed in accordance with the <code>version</code> attribute and the <code>oneOf</code> specification within the relevant OpenAPI specification<a href="#section-5-2.3" class="pilcrow">¶</a>
+</li>
+        <li id="section-5-2.4">Responses containing an <code>x-v</code> header <span class="bcp14">SHALL</span> be validated to ensure the <code>x-v</code> and <code>version</code> values are the same<a href="#section-5-2.4" class="pilcrow">¶</a>
+</li>
+      </ol>
 </section>
 </div>
 <div id="implementation-considerations">
