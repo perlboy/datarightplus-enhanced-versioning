@@ -32,7 +32,7 @@ organization="Biza.io"
 
 .# Abstract
 
-This specification outlines the technical components associated with the DataRight+ Enhanced Endpoint Versioning. This is intended to be an alternate endpoint versioning scheme to that outlined with [CDS] which facilitates a more developer friendly response processing mechanism (by way of `oneOf`) and a deterministic request payload versioning mechanism.
+This specification outlines the technical components associated with the DataRight+ Enhanced Endpoint Versioning. This is intended to be an alternate endpoint versioning scheme to that outlined with [@!CDS] which facilitates a more developer friendly response processing mechanism (by way of `oneOf`) and a deterministic request payload versioning mechanism.
 
 .# Notational Conventions
 
@@ -42,7 +42,7 @@ The keywords  "**REQUIRED**", "**SHALL**", "**SHALL NOT**", "**SHOULD**", "**SHO
 
 # Scope
 
-The scope of this specification is specifically with regard to a standardised request and response versioning pattern for resource server endpoint paths as an alternate to that prescribed by [CDS].
+The scope of this specification is specifically with regard to a standardised request and response versioning pattern for resource server endpoint paths as an alternate to that prescribed by [@!CDS].
 
 # Terms & Definitions
 
