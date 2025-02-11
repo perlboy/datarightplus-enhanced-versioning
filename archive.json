@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-01-30T00:09:57.167664+00:00",
+  "timestamp": "2025-02-11T00:10:14.650427+00:00",
   "repo": "datarightplus/datarightplus-enhanced-versioning",
   "labels": [
     {
@@ -50,5 +50,34 @@
     }
   ],
   "issues": [],
-  "pulls": []
+  "pulls": [
+    {
+      "number": 1,
+      "id": "PR_kwDOMWEVDs6KiTIv",
+      "title": "Upgrade to latest github workflow",
+      "url": "https://github.com/datarightplus/datarightplus-enhanced-versioning/pull/1",
+      "state": "MERGED",
+      "author": "perlboy",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-02-09T00:43:45Z",
+      "updatedAt": "2025-02-09T00:43:56Z",
+      "baseRepository": "datarightplus/datarightplus-enhanced-versioning",
+      "baseRefName": "main",
+      "baseRefOid": "3dda5a55f7c621c398c79d5a0790d2043e999ff5",
+      "headRepository": "datarightplus/datarightplus-enhanced-versioning",
+      "headRefName": "upgrade-github-workflow",
+      "headRefOid": "1aa7623446594902ae56188da21451a78e3055b9",
+      "closedAt": "2025-02-09T00:43:56Z",
+      "mergedAt": "2025-02-09T00:43:55Z",
+      "mergedBy": "perlboy",
+      "mergeCommit": {
+        "oid": "ca7e75dab14f873c6b35f597f1dc91d91cbb5730"
+      },
+      "comments": [],
+      "reviews": []
+    }
+  ]
 }
